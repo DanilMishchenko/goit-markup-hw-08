@@ -1,0 +1,234 @@
+// Модальное окно секции герой
+.backdrop {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: $backdrop-black-color;
+  padding: 93px 15px;
+  overflow-y: scroll;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  padding: 40px 15px;
+  border-radius: 4px;
+
+  background-color: $main-color;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+
+  @media screen and (min-width: 480px) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 609px;
+    padding: 40px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 528px;
+    height: 581px;
+  }
+}
+
+.close-button {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+
+  fill: #000000;
+  background-color: $main-color;
+  border: 1px solid $modal-close-button-border-color;
+  transition: fill 250ms $time-function;
+
+  @media screen and (max-width: 479px) {
+    top: 101px;
+    right: 23px;
+  }
+}
+
+.modal-title {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  color: $title-text-color;
+
+  @media screen and (min-width: 1200px) {
+    line-height: 1.15;
+  }
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  text-align: left;
+  height: 342px;
+
+  & .modal-input:hover,
+  & .modal-input:focus,
+  & .modal-input:focus-within,
+  & .modal-textarea:hover,
+  & .modal-textarea:focus {
+    border: 1px solid $accent-color;
+    outline: 0;
+  }
+}
+
+.modal-label {
+  position: relative;
+  margin-bottom: 10px;
+  color: $primary-text-color;
+
+  & .modal-textarea::placeholder {
+    color: rgba(117, 117, 117, 0.5);
+  }
+}
+
+.modal-field {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+}
+
+.modal-input,
+.modal-textarea {
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  transition: color 250ms ($time-function, border 250ms $time-function);
+}
+
+.modal-input {
+  height: 40px;
+  padding: 12px 16px 12px 42px;
+
+  &:hover + .modal-icon,
+  &:focus + .modal-icon {
+    fill: $accent-color;
+  }
+}
+
+.modal-label .modal-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transition: color 250ms ($time-function, border 250ms $time-function);
+}
+
+.modal-label .modal-textarea {
+  height: 120px;
+  padding: 12px 16px;
+  resize: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.modal-checkbox {
+  margin-bottom: 30px;
+
+  & input:checked + .icon-checkbox {
+    border-color: $accent-color;
+    background-color: $accent-color;
+    fill: $main-color;
+  }
+
+  & .visually-hidden:checked + .icon-checkbox {
+    background-origin: border-box;
+    background-color: $accent-color;
+  }
+}
+
+.modal-checkbox .icon-checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 15px;
+  margin-right: 7px;
+  border-radius: 2px;
+  background-origin: border-box;
+  border: 2px solid $title-text-color;
+  background-color: transparent;
+  fill: transparent;
+  transition: border-color 250ms
+    ($time-function, background-color 250ms $time-function, fill 250ms $time-function, box-shadow 250ms $time-function);
+}
+
+.modal-checkbox label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox-agreement .checkbox-link {
+  color: $accent-color;
+  text-decoration: underline;
+  margin-left: 7px;
+}
+
+.submit-button {
+  display: inline-block;
+  align-items: center;
+  text-align: center;
+  min-width: 200px;
+  max-height: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 4px;
+  border: 0px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  color: $main-color;
+  background-color: $accent-color;
+  transition: 250ms ($time-function, background-color 250ms $time-function);
+}
+
+.checkbox-agreement {
+  display: flex;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.03em;
+  color: $primary-text-color;
+
+  @media screen and (min-width: 1200px) {
+    font-size: 14px;
+    line-height: 1.71;
+  }
+}
