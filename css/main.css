@@ -396,6 +396,7 @@ summary {
   .menu-container {
     display: none;
     position: absolute;
+    z-index: 1;
     top: 100%;
     left: 0;
     width: 100%;
@@ -1057,6 +1058,7 @@ summary {
   .features-item {
     width: calc((100% - 30px) / 2);
     margin-right: 30px;
+    margin-bottom: 30px;
   }
   .features-item:nth-child(2n) {
     margin-right: 0;
@@ -1074,6 +1076,15 @@ summary {
   }
   .features-item:last-child {
     margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .features-item {
+    width: 100%;
+  }
+  .features-item:not(:last-child) {
+    margin-bottom: 30px;
   }
 }
 
